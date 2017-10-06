@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lista zadań</string>
+    <string name="action_settings">Settings</string>
+    <string name="delete_btn">Usuń zadanie</string>
+
+    <string name="header_task_name">Zadanie</string>
+    <string name="header_task_time">Termin</string>
+    <string name="header_task_realized">Skończone</string>
+
+    <string name="options_add">Dodaj zadanie</string>
+
+    <string name="name_hint">Nazwa zadania</string>
+
+    <string name="menu_confirm">Zatwierdź</string>
+
+    <string name="title_activity_adding">Nowe powiadomienie</string>
+</resources>
