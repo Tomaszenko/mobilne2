@@ -14,4 +14,6 @@
     <string name="menu_confirm">Zatwierdź</string>
 
     <string name="title_activity_adding">Nowe powiadomienie</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="menu_dismiss">Anuluj</string>
 </resources>

@@ -3,6 +3,8 @@ package com.mymobile.zadanie2.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.mymobile.zadanie2.utils.NotificationID;
+
 import java.util.Date;
 
 /**
@@ -11,12 +13,20 @@ import java.util.Date;
 
 public class UserTask implements Parcelable {
 
+    private int id;
     private String description;
     private Date dateOfTask;
+    private boolean notification;
 
-    public UserTask(String description, Date dateOfTask) {
+    public UserTask(String description, Date dateOfTask, boolean notification) {
+        this.id = NotificationID.getID();
         this.description = description;
         this.dateOfTask = dateOfTask;
+        this.notification = notification;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getDescription() {
@@ -35,6 +45,14 @@ public class UserTask implements Parcelable {
         this.dateOfTask = dateOfTask;
     }
 
+    public boolean isNotification() {
+        return notification;
+    }
+
+    public void setNotification(boolean notification) {
+        this.notification = notification;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -42,8 +60,10 @@ public class UserTask implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
         parcel.writeString(description);
         parcel.writeSerializable(dateOfTask);
+        parcel.writeByte((byte)(notification ? 1 : 0));
     }
 
     public static final Parcelable.Creator<UserTask> CREATOR = new Parcelable.Creator<UserTask>() {
@@ -59,7 +79,9 @@ public class UserTask implements Parcelable {
     };
 
     private UserTask(Parcel in) {
+        this.id = in.readInt();
         this.description = in.readString();
         this.dateOfTask = (Date) in.readSerializable();
+        this.notification = (in.readByte() > 0);
     }
 }

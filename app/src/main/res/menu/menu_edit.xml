@@ -3,6 +3,13 @@
 
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
+        android:id="@+id/action_dismiss"
+        android:title="@string/menu_dismiss"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item
         android:id="@+id/action_confirm"
         android:title="@string/menu_confirm"
         android:icon="@android:drawable/ic_menu_save"
